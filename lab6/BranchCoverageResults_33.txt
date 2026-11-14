@@ -1,0 +1,12 @@
+Lab 6 — Branch coverage
+
+Command: python -m coverage run --branch --source=spam_scoring -m pytest -q BranchCoverageTest_33_application.py
+......                                                                   [100%]
+6 passed
+
+Command: python -m coverage report -m
+Name              Stmts   Miss Branch BrPart  Cover   Missing
+-------------------------------------------------------------
+spam_scoring.py      39      0     26      0   100%
+-------------------------------------------------------------
+TOTAL                39      0     26      0   100%
