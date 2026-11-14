@@ -1,0 +1,12 @@
+Lab 6 — Code coverage
+
+Command: python -m coverage run --source=spam_scoring -m pytest -q CodeCoverageTest_33_application.py
+............                                                             [100%]
+12 passed
+
+Command: python -m coverage report -m
+Name              Stmts   Miss  Cover   Missing
+-----------------------------------------------
+spam_scoring.py      39      0   100%
+-----------------------------------------------
+TOTAL                39      0   100%
