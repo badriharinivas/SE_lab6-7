@@ -1,0 +1,139 @@
+FFF.FF                                                                   [100%]
+================================== FAILURES ===================================
+_________________ test_sender_domain_handles_arbitrary_input __________________
+  + Exception Group Traceback (most recent call last):
+  |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 10, in test_sender_domain_handles_arbitrary_input
+  |     @given(st.one_of(st.text(), st.none()))
+  |                    ^^^
+  |   File "<user>\AppData\Roaming\Python\Python313\site-packages\hypothesis\core.py", line 2334, in wrapped_test
+  |     raise the_error_hypothesis_found
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 12, in test_sender_domain_handles_arbitrary_input
+    |     result = sender_domain(value)
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\spam_scoring.py", line 2, in sender_domain
+    |     return email.split('@')[1].lower()
+    |            ~~~~~~~~~~~~~~~~^^^
+    | IndexError: list index out of range
+    | Failing test case: test_sender_domain_handles_arbitrary_input(
+    |     value='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 12, in test_sender_domain_handles_arbitrary_input
+    |     result = sender_domain(value)
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\spam_scoring.py", line 2, in sender_domain
+    |     return email.split('@')[1].lower()
+    |            ^^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'split'
+    | Failing test case: test_sender_domain_handles_arbitrary_input(
+    |     value=None,
+    | )
+    +------------------------------------
+___________________ test_first_link_handles_arbitrary_input ___________________
+  + Exception Group Traceback (most recent call last):
+  |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 17, in test_first_link_handles_arbitrary_input
+  |     @given(st.one_of(st.text(), st.none()))
+  |                    ^^^
+  |   File "<user>\AppData\Roaming\Python\Python313\site-packages\hypothesis\core.py", line 2334, in wrapped_test
+  |     raise the_error_hypothesis_found
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 19, in test_first_link_handles_arbitrary_input
+    |     result = first_link(value)
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\spam_scoring.py", line 5, in first_link
+    |     start = text.index('http')
+    | ValueError: substring not found
+    | Failing test case: test_first_link_handles_arbitrary_input(
+    |     value='',  # or any other generated value
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 19, in test_first_link_handles_arbitrary_input
+    |     result = first_link(value)
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\spam_scoring.py", line 5, in first_link
+    |     start = text.index('http')
+    |             ^^^^^^^^^^
+    | AttributeError: 'NoneType' object has no attribute 'index'
+    | Failing test case: test_first_link_handles_arbitrary_input(
+    |     value=None,  # or any other generated value
+    | )
+    +------------------------------------
+__________________ test_shout_ratio_handles_arbitrary_input ___________________
+  + Exception Group Traceback (most recent call last):
+  |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 24, in test_shout_ratio_handles_arbitrary_input
+  |     @given(st.one_of(st.text(), st.none()))
+  |                    ^^^
+  |   File "<user>\AppData\Roaming\Python\Python313\site-packages\hypothesis\core.py", line 2334, in wrapped_test
+  |     raise the_error_hypothesis_found
+  | ExceptionGroup: Hypothesis found 2 distinct failures. (2 sub-exceptions)
+  +-+---------------- 1 ----------------
+    | Traceback (most recent call last):
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 26, in test_shout_ratio_handles_arbitrary_input
+    |     result = shout_ratio(value)
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\spam_scoring.py", line 14, in shout_ratio
+    |     return len(upper) / len(letters)
+    |            ~~~~~~~~~~~^~~~~~~~~~~~~~
+    | ZeroDivisionError: division by zero
+    | Failing test case: test_shout_ratio_handles_arbitrary_input(
+    |     value='',
+    | )
+    +---------------- 2 ----------------
+    | Traceback (most recent call last):
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\test_spam_scoring.py", line 26, in test_shout_ratio_handles_arbitrary_input
+    |     result = shout_ratio(value)
+    |   File "<user>\OneDrive\Desktop\SE_lab6\L6_L7_33_spam_scoring\lab7\spam_scoring.py", line 12, in shout_ratio
+    |     letters = [c for c in text if c.isalpha()]
+    |                           ^^^^
+    | TypeError: 'NoneType' object is not iterable
+    | Failing test case: test_shout_ratio_handles_arbitrary_input(
+    |     value=None,
+    | )
+    +------------------------------------
+__________ test_first_link_returns_first_link_and_empty_when_missing __________
+
+    def test_first_link_returns_first_link_and_empty_when_missing():
+        assert first_link("See https://example.com/a then http://example.org") == "https://example.com/a"
+>       assert first_link("No link here") == ""
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+test_spam_scoring.py:37: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+text = 'No link here'
+
+    def first_link(text):
+>       start = text.index('http')
+                ^^^^^^^^^^^^^^^^^^
+E       ValueError: substring not found
+
+spam_scoring.py:5: ValueError
+_______________ test_shout_ratio_handles_letters_and_no_letters _______________
+
+    def test_shout_ratio_handles_letters_and_no_letters():
+        assert shout_ratio("FREE prize NOW") == 7 / 12
+>       assert shout_ratio("123 !?") == 0.0
+               ^^^^^^^^^^^^^^^^^^^^^
+
+test_spam_scoring.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+text = '123 !?'
+
+    def shout_ratio(text):
+        letters = [c for c in text if c.isalpha()]
+        upper = [c for c in letters if c.isupper()]
+>       return len(upper) / len(letters)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+E       ZeroDivisionError: division by zero
+
+spam_scoring.py:14: ZeroDivisionError
+=========================== short test summary info ===========================
+FAILED test_spam_scoring.py::test_sender_domain_handles_arbitrary_input - Exc...
+FAILED test_spam_scoring.py::test_first_link_handles_arbitrary_input - Except...
+FAILED test_spam_scoring.py::test_shout_ratio_handles_arbitrary_input - Excep...
+FAILED test_spam_scoring.py::test_first_link_returns_first_link_and_empty_when_missing
+FAILED test_spam_scoring.py::test_shout_ratio_handles_letters_and_no_letters
+5 failed, 1 passed in 4.94s

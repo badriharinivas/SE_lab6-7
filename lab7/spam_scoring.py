@@ -1,15 +1,38 @@
+import re
+
+
 def sender_domain(email):
-    return email.split('@')[1].lower()
+    """Return the lower-case domain, or an empty string for invalid input."""
+    if not isinstance(email, str):
+        return ""
+
+    email = email.strip()
+    if email.count("@") != 1 or any(character.isspace() for character in email):
+        return ""
+
+    local, domain = email.split("@")
+    if not local or not domain:
+        return ""
+    return domain.lower()
+
 
 def first_link(text):
-    start = text.index('http')
-    end = text.find(' ', start)
-    if end == -1:
-        end = len(text)
-    return text[start:end]
+    """Return the first HTTP(S) URL, or an empty string if none is present."""
+    if not isinstance(text, str):
+        return ""
+
+    match = re.search(r"https?://\S+", text)
+    return match.group(0) if match else ""
+
 
 def shout_ratio(text):
+    """Return the fraction of alphabetic characters that are uppercase."""
+    if not isinstance(text, str):
+        return 0.0
+
     letters = [c for c in text if c.isalpha()]
+    if not letters:
+        return 0.0
     upper = [c for c in letters if c.isupper()]
     return len(upper) / len(letters)
 
